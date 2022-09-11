@@ -1,10 +1,12 @@
-import { useCallback, useEffect } from "react";
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import { useCallback, useEffect, useState } from "react";
+import { StyleSheet, View } from "react-native";
 import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
+import Button from "./src/components/Button";
+import Input from "./src/components/Input";
 
 export default function App() {
+  const [email, setEmail] = useState<string>("");
   const [fontsLoaded] = useFonts({
     "Open-Sans-Bold": require("./src/assets/fonts/OpenSans-Bold.ttf"),
     "Open-Sans-Regular": require("./src/assets/fonts/OpenSans-Regular.ttf"),
@@ -30,10 +32,17 @@ export default function App() {
 
   return (
     <View style={styles.container} onLayout={onLayoutRootView}>
-      <Text style={{ fontFamily: "Open-Sans-Bold", fontSize: 18 }}>
-        Open up App.tsx to start working on your app!
-      </Text>
-      <StatusBar style="auto" />
+      <Button
+        onPress={() => {}}
+        placeholder="Clique aqui"
+        loading={false}
+        disabled={false}
+      />
+      <Input
+        onChangeText={(e: string) => setEmail(e)}
+        placeholder={"Digite seu email"}
+        value={email}
+      />
     </View>
   );
 }
