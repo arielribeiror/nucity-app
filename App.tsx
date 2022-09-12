@@ -32,16 +32,16 @@ export default function App() {
 
   return (
     <View style={styles.container} onLayout={onLayoutRootView}>
+      <Input
+        onChangeText={(e: string) => setEmail(e)}
+        placeholder={"Digite seu email"}
+        value={email}
+      />
       <Button
         onPress={() => {}}
         placeholder="Clique aqui"
         loading={false}
         disabled={false}
-      />
-      <Input
-        onChangeText={(e: string) => setEmail(e)}
-        placeholder={"Digite seu email"}
-        value={email}
       />
     </View>
   );
