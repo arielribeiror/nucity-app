@@ -1,9 +1,9 @@
 import { useCallback, useEffect, useState } from "react";
-import { StyleSheet, View } from "react-native";
+import { ImageBackground, StyleSheet, View, Text } from "react-native";
 import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
 import Button from "./src/components/Button";
-import Input from "./src/components/Input";
+import { colors } from "./app.json";
 
 export default function App() {
   const [email, setEmail] = useState<string>("");
@@ -31,18 +31,28 @@ export default function App() {
   }
 
   return (
-    <View style={styles.container} onLayout={onLayoutRootView}>
-      <Input
-        onChangeText={(e: string) => setEmail(e)}
-        placeholder={"Digite seu email"}
-        value={email}
-      />
-      <Button
-        onPress={() => {}}
-        placeholder="Clique aqui"
-        loading={false}
-        disabled={false}
-      />
+    <View onLayout={onLayoutRootView} style={styles.container}>
+      <ImageBackground
+        source={require("./src/assets/img/bg.jpg")}
+        resizeMode="cover"
+        style={styles.image}
+      >
+        <View style={styles.header}>
+          <Text style={styles.title}>Bem-vindo</Text>
+          <Text style={styles.title}>
+            ao <Text style={styles.brand}>NuCity</Text>
+          </Text>
+          <Text style={styles.subtitle}>Sua cidade, em detalhes.</Text>
+        </View>
+        <View style={styles.footer}>
+          <Button
+            onPress={() => {}}
+            placeholder="Entrar"
+            loading={false}
+            disabled={false}
+          />
+        </View>
+      </ImageBackground>
     </View>
   );
 }
@@ -50,8 +60,35 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
+  },
+  header: {
+    flex: 1,
+    padding: 32,
+    marginTop: 96
+  },
+  title: {
+    fontFamily: "Open-Sans-Bold",
+    fontSize: 42,
+    textAlign: "left",
+    lineHeight: 46,
+  },
+  brand: {
+    color: colors.primaryColor,
+  },
+  subtitle: {
+    fontFamily: "Open-Sans-Regular",
+    fontSize: 18,
+    textAlign: "left",
+    marginTop: 16,
+  },
+  image: {
+    flex: 1,
     justifyContent: "center",
+  },
+  footer: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "flex-end",
+    marginVertical: 34,
   },
 });
