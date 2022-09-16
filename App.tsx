@@ -6,7 +6,6 @@ import Button from "./src/components/Button";
 import { colors } from "./app.json";
 
 export default function App() {
-  const [email, setEmail] = useState<string>("");
   const [fontsLoaded] = useFonts({
     "Open-Sans-Bold": require("./src/assets/fonts/OpenSans-Bold.ttf"),
     "Open-Sans-Regular": require("./src/assets/fonts/OpenSans-Regular.ttf"),
