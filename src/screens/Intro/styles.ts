@@ -8,10 +8,26 @@ const styles = StyleSheet.create({
   header: {
     flex: 1,
     padding: 32,
+    marginTop: 96,
   },
-  text: {
-    fontSize: 16,
+  title: {
+    fontFamily: "Open-Sans-Bold",
+    fontSize: 42,
+    textAlign: "left",
+    lineHeight: 46,
+  },
+  brand: {
+    color: colors.primaryColor,
+  },
+  subtitle: {
     fontFamily: "Open-Sans-Regular",
+    fontSize: 18,
+    textAlign: "left",
+    marginTop: 16,
+  },
+  image: {
+    flex: 1,
+    justifyContent: "center",
   },
   footer: {
     flex: 1,
